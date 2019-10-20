@@ -8,8 +8,8 @@ var router = require('./routes/hotels');
 var mongoose = require('mongoose');
 
 var dotenv = require('dotenv');
-dotenv.config({ path: `./environments/.env.${process.env.NODE_ENV}` })
-var { PORT, DB_URL, DB_USER, DB_PASS, NODE_ENV } = process.env;
+dotenv.config({ path: `./environments/.env.${process.env.NODE_ENV || 'development'}` })
+var { PORT, DB_URL, DB_USER, DB_PASS, NODE_ENV = 'development' } = process.env;
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
