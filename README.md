@@ -26,6 +26,9 @@ Cada archivo contiene las siguientes variables de entorno:
 - **DB_URL:** URL completa de la base de datos (incluyendo el puerto de ser necesario). 
 > **localhost/almundo** o **localhost:27017/almundo**.
 
+- **DB_COLLECTION:** Nombre de la colección que contiene los datos a consumir. 
+> Por defecto es **hotels**.
+
 - **DB_USER:** Nombre de usuario para acceder a la base de datos. 
 > Dejar vacío en caso de no poseer.
 
