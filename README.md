@@ -34,3 +34,57 @@ Cada archivo contiene las siguientes variables de entorno:
 
 - **DB_PASS:** Contraseña para acceder a la base de datos. 
 > Dejar vacío en caso de no poseer.
+
+## API
+
+#### `GET` api/hotels
+
+Recupera la lista completa de los hoteles, aplicando los filtros en caso de existir.
+
+###### queryParams
+- **name:**  Se utiliza para listar por el nombre especificado.
+- **stars:**  Se utiliza para listar por estrellas, soporta una o varias.
+
+
+#### `GET` api/hotels/:mongoId
+
+Recupera la información especifica de un hotel, según el ID recibido.
+
+#### `POST` api/hotels/
+
+Crea un nuevo hotel, con la info enviada desde el body.
+
+###### body
+
+```json
+  {
+    "id": "2499432",
+    "name": "Hotel Venezuela",
+    "stars": 5,
+    "price": 9294.18,
+    "image": "4900059_30_b.jpg",
+    "amenities": [
+        "safety-box",
+        "newspaper",
+        "garden",
+        "separate-bredroom",
+        "children-club"
+    ]
+  }
+```
+
+
+
+#### `PUT` api/hotels/:mongoId
+
+Modifica la información especifica del hotel correspondiente al ID recibido.
+
+#### `DELETE` api/hotels/:mongoId
+
+Elimina el hotel correspondiente al ID recibido.
+
+
+
+
+
+
