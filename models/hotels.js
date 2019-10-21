@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
- 
+var { DB_COLLECTION } = process.env;
 var Hotels = new Schema({
     id: {type: String, required: true, max: 100},
     name: {type: String, required: true},
@@ -12,5 +12,4 @@ var Hotels = new Schema({
 });
 
 Hotels.index({ name: 'text', stars: 'number' });
-
-module.exports = mongoose.model('Hotels', Hotels, 'hotels');
+module.exports = mongoose.model(DB_COLLECTION, Hotels, DB_COLLECTION);

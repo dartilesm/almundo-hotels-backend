@@ -3,7 +3,6 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
-var router = require('./routes/hotels');
 
 var mongoose = require('mongoose');
 
@@ -21,6 +20,7 @@ mongoose.connect(`mongodb://${DB_USER}:${DB_PASS}@${DB_URL}`);
 mongoose.connection.on('error', err => console.log('connection error:', err));
 mongoose.connection.once('open', () => console.log('Connected'));
 
+var router = require('./routes/hotels');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

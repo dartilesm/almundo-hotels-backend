@@ -11,12 +11,12 @@ function makeResponse(err, data, notFoundMessage = 'No se pudo completar la oper
 
 function getHotels(req, res){
     const { name, stars } = req.query;
-    console.log(name, stars)
+
     const findOptions = { 
         ...name && { name: new RegExp(name) },
         ...stars && { stars: JSON.parse(stars) }
     }
-    console.log(findOptions)
+
     Hotels.find(findOptions).exec((err, hotels) => {
         const {response, status} = makeResponse(err, hotels);
         return res.status(status).send(response);
@@ -47,8 +47,8 @@ function updateHotel(req, res){
 
     var updateData = req.body;
 
-    Hotels.findByIdAndUpdate(hotelId, updateData, { new: false }, (err, hotelUpdated) => {
-        const {response, status} = makeResponse(err, updateData);
+    Hotels.findByIdAndUpdate(hotelId, updateData, { new: true }, (err, hotelUpdated) => {
+        const {response, status} = makeResponse(err, hotelUpdated);
         return res.status(status).send(response);
     });
 }
