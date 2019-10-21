@@ -16,7 +16,6 @@ function getHotels(req, res){
         ...name && { name: new RegExp(name, 'i') },
         ...stars && { stars: JSON.parse(stars) }
     }
-    console.log(findOptions);
     Hotels.find(findOptions).exec((err, hotels) => {
         const {response, status} = makeResponse(err, hotels);
         return res.status(status).send(response);
